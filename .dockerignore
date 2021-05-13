@@ -2,3 +2,4 @@ helm
 .gitignore
 .dockerignore
 Dockerfile
+skaffold.yaml

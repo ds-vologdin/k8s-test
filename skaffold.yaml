@@ -1,0 +1,14 @@
+apiVersion: skaffold/v2beta1
+kind: Config
+build:
+  tagPolicy:
+    sha256: {}
+  artifacts:
+    - image: dsvologdin/app
+deploy:
+  helm:
+    releases:
+      - name: app
+        chartPath: helm/app
+        values:
+          image: dsvologdin/app

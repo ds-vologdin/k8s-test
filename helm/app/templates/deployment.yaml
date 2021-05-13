@@ -32,8 +32,9 @@ spec:
         - name: {{ $fullName }}
           securityContext:
             {{- toYaml .Values.securityContext | nindent 12 }}
-          image: "{{ .Values.image.repository }}:{{ .Values.image.tag | default .Chart.AppVersion }}"
-          imagePullPolicy: {{ .Values.image.pullPolicy }}
+#          for skaffold
+          image: {{ .Values.image }}
+          imagePullPolicy: IfNotPresent
           ports:
             - name: {{ $fullName }}
               containerPort: {{ .Values.service.port }}
